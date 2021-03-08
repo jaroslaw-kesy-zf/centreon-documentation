@@ -56,6 +56,33 @@ yum update centreon\*
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
+#### Mise à jour de la version de PHP
+
+Depuis 21.04, Centreon utilise un nouveau paquet PHP.
+
+Le fuseau horaire par défaut de PHP 7 doit être configuré. Executez la commande
+suivante :
+
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+```
+
+> Changez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
+> horaires est disponible [ici](http://php.net/manual/en/timezones.php).
+
+> N'oubliez pas de reporter les configurations spécifiques qui peuvent être
+> configurées dans /etc/opt/rh/rh-php72/php.ini et/ou
+> /etc/opt/rh/rh-php72/php-fpm.d/centreon.conf
+
+Réalisez les actions suivantes :
+
+```shell
+systemctl disable rh-php72-php-fpm
+systemctl stop rh-php72-php-fpm
+systemctl enable rh-php73-php-fpm
+systemctl start rh-php73-php-fpm
+```
+
 ### Finalisation de la mise à jour
 
 Avant de démarrer la montée de version via l'interface web, rechargez le
