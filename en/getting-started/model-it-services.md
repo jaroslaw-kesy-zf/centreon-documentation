@@ -161,8 +161,8 @@ Examples:
 
 In this example, the following availability will be calculated:
 
-  - % Up and optimum performance \~ 98.61% (OK+Warning)
-  - % Up but degraded \~ 97.91% (OK)
-  - % Not available \~ 1.38% (Critical).
+  - % Up and optimum performance \~ 97,917% (OK)
+  - % Up but degraded \~ 0,694% (Warning)
+  - % Not available \~ 1.389% (Critical).
 
 You may use **Centreon MBI extension** to access advanced reporting capabilities on business activities data.
